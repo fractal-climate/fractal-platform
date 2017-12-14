@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}" />
+
+        <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
+
+        <script src="{{ url_for('static', filename='js/uikit.min.js')  }}"></script>
+        <script src="{{ url_for('static', filename='js/uikit-icons.min.js')  }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery.min.js')  }}"></script>
+        <script src="{{ url_for('static', filename='js/vue.min.js')  }}"></script>
+
+        <script src="https://openlayers.org/en/v4.6.4/build/ol.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+
+        <div class="uk-offcanvas-content">
+
+            <nav class="uk-navbar-container" uk-navbar>
+                <div class="uk-navbar-left">
+                    <ul class="uk-navbar-nav">
+                        <li><a href="#left-offcanvas" uk-toggle uk-icon="icon: menu"></a></li>
+                        <li><a href="">Documentation</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+
+            <!-- Openlayers map -->
+            <div id="map" class="map uk-width-viewport uk-height-viewport"></div>
+
+            <div id="left-offcanvas" uk-offcanvas="overlay: true">
+                <div class="uk-offcanvas-bar">
+
+                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+
+                    <div id="left-offcanvas-content"></div>
+
+                </div>
+            </div>
+
+        <div id="modal" class="uk-modal" uk-modal>
+
+            <div id="modal-content" class="uk-modal-dialog uk-modal-body">
+
+                {% raw %}
+                
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                
+                <div class="uk-modal-header">
+                    <h3 class="uk-modal-title">{{ name }}</h3>
+                </div>
+
+                <div class="uk-modal-body">Estimated population: {{ properties.population }} million</div>
+
+                {% endraw %}
+
+            </div>
+        </div>
+
+        </div>
+       
+
+        <script src="{{ url_for('static', filename='js/app.js')  }}"></script>
+
+
+    </body>
+</html>
